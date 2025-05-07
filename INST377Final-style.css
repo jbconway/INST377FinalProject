@@ -29,6 +29,72 @@
 
 
 
+
+
+
+
+
+  
+/* HOME PAGE */
+#recipes-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Optional, adjusts the space between the cards */
+  flex-wrap: wrap; /* Allows the cards to wrap onto a new line if there's not enough space */
+  margin-top: 20px;
+}
+
+/* Style for individual recipe cards */
+.recipe-card {
+  width: 30%; /* Adjusts the width of each card (3 cards side by side) */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.recipe-card:hover {
+  transform: translateY(-5px); /* Adds a small hover effect */
+}
+
+.recipe-card img {
+  width: 100%; /* Ensures the image fills the card width */
+  height: auto;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.recipe-card h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.recipe-card p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.recipe-card a {
+  text-decoration: none;
+  color: #1e90ff;
+  font-weight: bold;
+}
+
+.recipe-card a:hover {
+  color: #0056b3;
+}
+
+
+
+
+
+
+
+
   /* ABOUT PAGE */
   .creators {
     display: flex;
