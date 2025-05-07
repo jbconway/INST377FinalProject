@@ -1,27 +1,62 @@
-#main-nav {
+/* ALL PAGES */
+.main-nav {
     background-color: navy;
     text-align: center;
   }
   
-  #main-nav ul {
+  .main-nav ul {
     padding: 0;
     margin: 0;
     list-style-type: none;  
     text-align: center;  
   }
   
-  #main-nav ul li{
+  .main-nav ul li{
     display: inline-block;
     padding: 10px;
   }
   
   /* style links */
-  #main-nav ul li a{
+  .main-nav ul li a{
     color: rgb(149, 139, 139);    
     text-decoration: none;
   }
   
   /* changes background on links when you hover */
-  #main-nav li:hover{
+  .main-nav li:hover{
     background-color: blanchedalmond;
   }
+
+
+
+  /* ABOUT PAGE */
+  .creators {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* spacing between pictures */
+    flex-wrap: wrap; /* allows stacking on smaller screens */
+    margin-top: 20px;
+  }
+  
+  .creators figure {
+    text-align: center;
+    max-width: 200px;
+  }
+  
+  .creators img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .creators figcaption {
+    margin-top: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .sub-header2, #about-text{
+    text-align: center;
+  }
+  
