@@ -1,0 +1,27 @@
+#main-nav {
+    background-color: navy;
+    text-align: center;
+  }
+  
+  #main-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;  
+    text-align: center;  
+  }
+  
+  #main-nav ul li{
+    display: inline-block;
+    padding: 10px;
+  }
+  
+  /* style links */
+  #main-nav ul li a{
+    color: rgb(149, 139, 139);    
+    text-decoration: none;
+  }
+  
+  /* changes background on links when you hover */
+  #main-nav li:hover{
+    background-color: blanchedalmond;
+  }
