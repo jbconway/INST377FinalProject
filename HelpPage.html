@@ -1,28 +1,68 @@
-<!-- Help Page -->
 <html>
-    <head>
-      <title>RecipeMe</title>
-      <link rel="stylesheet" href="INST377Final-style.css" />
-      <script src="INST377Final-javascript.js"></script>
-    </head>
+  <head>
+    <title>RecipeMe - Help</title>
 
-    <body>
-        <!-- Header Section -->
-        <header class="main-header">
-            <h1>RecipeMe</h1>
-        </header>
-      <!-- Navigaiton Section -->
-      <nav class="main-nav">
-        <ul>
-          <li><a href="HomePage.html">Home</a></li>
-          <li><a href="AboutPage.html">About</a></li>
-          <li><a href="HelpPage.html">Help</a></li>
-          <li><a href="SearchPage.html">Search</a></li>
-          <li><a href="FavoritesPage.html">Favorites</a></li>
-        </ul>
-      </nav>
+    <!-- Simple Slider JS -->
+    <script src="https://unpkg.com/simple-slider@1.0.0/dist/simpleslider.min.js"></script>
 
-      <h1 class="sub-header">Help Page</h1>
+    <!-- Our CSS -->
+    <link rel="stylesheet" href="INST377Final-style.css" />
 
-    </body>
+    <!-- Our JS -->
+    <script src="HelpPage-javascript.js"></script>
+  </head>
+
+  <body>
+    <!-- Header Section -->
+    <header class="main-header">
+      <h1>RecipeMe</h1>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="AboutPage.html">About</a></li>
+        <li><a href="HelpPage.html">Help</a></li>
+        <li><a href="SearchPage.html">Search</a></li>
+        <li><a href="FavoritesPage.html">Favorites</a></li>
+      </ul>
+    </nav>
+
+    <h1 class="sub-header">Help Page</h1>
+    <h2 class="sub-header2">How to use RecipeMe</h2>
+
+    <!-- Image Slider -->
+    <!-- <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/help_images/" alt="Step 1: Enter Ingredients" /></div>
+        <div class="swiper-slide"><img src="images/help_images/step2.png" alt="Step 2: View Results" /></div>
+        <div class="swiper-slide"><img src="images/help_images/" alt="Step 3: Click Recipe" /></div>
+        <div class="swiper-slide"><img src="images/help_images/" alt="Step 4: Save Favorite" /></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div> -->
+    <!-- Simple Slider Container -->
+    <div id="carousel" class="simple-slider">
+      <div>
+        <h3>Step 1: Enter Ingredients</h3>
+        <img
+          src="images/help_images/step1.png"
+          alt="Step 1: Enter Ingredients"
+        />
+      </div>
+      <div>
+        <h3>Step 2: View Results</h3>
+        <img src="images/help_images/step2.png" alt="Step 2: View Results" />
+      </div>
+      <div>
+        <h3>Step 3: Click Recipe</h3>
+        <img src="images/help_images/step3.png" alt="Step 3: Click Recipe" />
+      </div>
+      <div>
+        <h3>Step 4: Save Favorite</h3>
+        <img src="images/help_images/step4.png" alt="Step 4: Save Favorite" />
+      </div>
+    </div>
+  </body>
 </html>

@@ -33,15 +33,27 @@ export function setupSearchHandler() {
       }
 
       resultsContainer.innerHTML = '';
-      data.forEach(recipe => {
-        const recipeDiv = document.createElement('div');
-        recipeDiv.classList.add('recipe-card');
-        recipeDiv.innerHTML = `
-          <h3>${recipe.title}</h3>
-          <img src="${recipe.image}" alt="${recipe.title}" />
-        `;
-        resultsContainer.appendChild(recipeDiv);
-      });
+
+      // Use for...of so we can await additional fetches
+      for (const recipe of data) {
+        try {
+          const infoResponse = await fetch(
+            `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${API_KEY}`
+          );
+          const recipeInfo = await infoResponse.json();
+
+          const recipeDiv = document.createElement('div');
+          recipeDiv.classList.add('recipe-card');
+          recipeDiv.innerHTML = `
+            <h3>${recipeInfo.title}</h3>
+            <img src="${recipeInfo.image}" alt="${recipeInfo.title}" />
+            <p><a href="${recipeInfo.sourceUrl}" target="_blank">View Recipe</a></p>
+          `;
+          resultsContainer.appendChild(recipeDiv);
+        } catch (error) {
+          console.error(`Error fetching details for recipe ID ${recipe.id}:`, error);
+        }
+      }
     } catch (error) {
       console.error('Error fetching recipes:', error);
       resultsContainer.innerHTML = '<p>Something went wrong. Try again later.</p>';
@@ -50,5 +62,6 @@ export function setupSearchHandler() {
 }
 
 window.addEventListener('load', setupSearchHandler);
+
 
                                 

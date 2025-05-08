@@ -1,0 +1,18 @@
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("Initializing slider...");
+  
+    const carousel = document.getElementById("carousel");
+    if (!carousel) {
+      console.error("Carousel element not found.");
+      return;
+    }
+  
+    simpleSlider("#carousel", {
+      autoPlay: false,
+      controls: true,
+      transition: "fade"
+    });
+  
+    console.log("Slider initialized.");
+  });
+  
