@@ -3,7 +3,7 @@
     <head>
       <title>RecipeMe</title>
       <link rel="stylesheet" href="INST377Final-style.css" />
-      <script src="INST377Final-javascript.js"></script>
+      <script type= "module" src="Search-javascript.js"></script>
     </head>
 
     <body>
@@ -21,6 +21,16 @@
           <li><a href="FavoritesPage.html">Favorites</a></li>
         </ul>
       </nav>
+
+      <main>
+        <section class="search-section">
+          <h2>Search Recipes by Ingredients</h2>
+          <input type="text" id="ingredientInput" placeholder="e.g., eggs, milk, cheese" />
+          <button id="searchBtn">Search</button>
+          <!-- <div id="results" class="results-grid"></div> -->
+          <div id="results" class="results-list"></div>
+        </section>
+      </main>
 
     </body>
 </html>

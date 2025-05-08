@@ -39,14 +39,16 @@
 #recipes-list {
   display: flex;
   justify-content: space-between;
-  gap: 20px; /* Optional, adjusts the space between the cards */
-  flex-wrap: wrap; /* Allows the cards to wrap onto a new line if there's not enough space */
+  gap: 20px; 
+  flex-wrap: wrap; 
   margin-top: 20px;
+  padding: 0; /* Ensure no extra padding on the container */
+  max-width: 100%; /* Ensure it spans the full width */
+
 }
 
-/* Style for individual recipe cards */
 .recipe-card {
-  width: 30%; /* Adjusts the width of each card (3 cards side by side) */
+  width: 30%; 
   border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
@@ -58,11 +60,11 @@
 }
 
 .recipe-card:hover {
-  transform: translateY(-5px); /* Adds a small hover effect */
+  transform: translateY(-5px); 
 }
 
 .recipe-card img {
-  width: 100%; /* Ensures the image fills the card width */
+  width: 100%; 
   height: auto;
   border-bottom: 2px solid #ccc;
   margin-bottom: 10px;
@@ -126,3 +128,12 @@
     text-align: center;
   }
   
+
+
+
+
+
+
+/* SEARCH PAGE - style results like the home page */
+/* could eliminate this by combining  */
+/* STYLE FOR SEARCH RESULTS */
