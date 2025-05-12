@@ -1,6 +1,6 @@
 // HOME PAGE
 
-// loads 5 random featured recipes from the spoonacular API and displays them on the home page
+// loads 6 random featured recipes from the spoonacular API and displays them on the home page
 import API_KEY from './config.js';
 export async function loadFeaturedRecipes() {
   const recipesContainer = document.getElementById('random-recipes');
@@ -10,7 +10,7 @@ export async function loadFeaturedRecipes() {
 
   try {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/random?number=5&includeNutrition=true&apiKey=${API_KEY}`
+      `https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=${API_KEY}`
     );
     const data = await response.json();
     const recipes = data.recipes;
