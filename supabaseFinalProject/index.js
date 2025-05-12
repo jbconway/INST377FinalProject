@@ -2,14 +2,16 @@ const express = require('express');
 const supabaseClient = require('@supabase/supabase-js');
 const bodyParser = require('body-parser')
 // const { isValidStateAbbreviation } = required('usa-state-validator) if we want to add a js library we can
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express()
 const port = 3000;
 
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/public'))
-const supabaseUrl = 'https://eakdvhvmrmopemmdvmeg.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVha2R2aHZtcm1vcGVtbWR2bWVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcwODIwNDgsImV4cCI6MjA2MjY1ODA0OH0.KjPBYB1quxJCdAUTHa15OejBLRNLDAH_TuwL5Royslk';
+const supabaseUrl = process.env.SUPABASE_URL
+const supabaseKey = process.env.SUPABASE_KEY
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
 
 app.get('/recipes', async (req, res) => {
