@@ -1,6 +1,8 @@
 
 // SEARCH PAGE
 
+
+
 import API_KEY from './config.js';
 
 export function setupSearchHandler() {
@@ -11,20 +13,26 @@ export function setupSearchHandler() {
   if (!searchBtn || !ingredientInput || !resultsContainer) return;
 
   searchBtn.addEventListener('click', async () => {
-    const ingredients = ingredientInput.value.trim();
-    if (!ingredients) {
+    const rawInput = ingredientInput.value.trim();
+    if (!rawInput) {
       resultsContainer.innerHTML = '<p>Please enter at least one ingredient.</p>';
       return;
     }
 
+    const ingredientsArray = rawInput
+      .split(',')
+      .map(ing => ing.trim().replace(/\s+/g, '+')) // replace spaces with +
+      .filter(ing => ing.length > 0);
+
+    const ingredients = ingredientsArray.join(',+'); // keep commas between ingredients
+
+    const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=${API_KEY}`;
+    console.log('API Request URL:', apiUrl); 
+
     resultsContainer.innerHTML = '<p>Searching...</p>';
 
     try {
-      const response = await fetch(
-        `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${encodeURIComponent(
-          ingredients
-        )}&number=10&apiKey=${API_KEY}`
-      );
+      const response = await fetch(apiUrl);
       const data = await response.json();
 
       if (!Array.isArray(data) || data.length === 0) {
@@ -34,7 +42,6 @@ export function setupSearchHandler() {
 
       resultsContainer.innerHTML = '';
 
-      // Use for...of so we can await additional fetches
       for (const recipe of data) {
         try {
           const infoResponse = await fetch(

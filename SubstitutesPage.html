@@ -1,9 +1,8 @@
-<!-- Favorites Page -->
 <html>
     <head>
-      <title>RecipeMe - Favorites</title>
+      <title>RecipeMe - Substitues </title>
       <link rel="stylesheet" href="INST377Final-style.css" />
-      <script src="INST377Final-javascript.js"></script>
+      <script type="module" src="Substitutes-javascript.js"></script>
     </head>
 
     <body>
@@ -11,8 +10,7 @@
         <header class="main-header">
             <h1>RecipeMe</h1>
         </header>
-  
-      <!-- Navigaiton Section -->
+        <!-- Navigation Section -->
       <nav class="main-nav">
         <ul>
           <li><a href="HomePage.html">Home</a></li>
@@ -24,7 +22,9 @@
         </ul>
       </nav>
 
+      <h2 class="sub-header">Search for Substitutes for Common Ingredients</h2>
+      <input type="text" id="ingredientInput" placeholder="e.g. butter" />
+      <button id="findSubstitutesBtn">Search</button>
+      <div id="substituteResults"></div>
     </body>
 </html>
-
-<!-- use charting libraries to display favroties (chart js) -->
