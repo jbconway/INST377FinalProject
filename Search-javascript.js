@@ -55,6 +55,7 @@ export function setupSearchHandler() {
             <h3>${recipeInfo.title}</h3>
             <img src="${recipeInfo.image}" alt="${recipeInfo.title}" />
             <p><a href="${recipeInfo.sourceUrl}" target="_blank">View Recipe</a></p>
+            <button class="favorite-btn" data-id="${recipe.id}">Add to Favorites</button>
           `;
           resultsContainer.appendChild(recipeDiv);
         } catch (error) {

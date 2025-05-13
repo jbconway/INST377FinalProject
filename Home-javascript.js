@@ -23,6 +23,8 @@ export async function loadFeaturedRecipes() {
         <h3>${recipe.title}</h3>
         <img src="${recipe.image}" alt="${recipe.title}" />
         <p><a href="${recipe.sourceUrl}" target="_blank">View Recipe</a></p>
+        <button class="favorite-btn" data-id="${recipe.id}">Add to Favorites</button>
+
       `;
       recipesContainer.appendChild(recipeCard);
     });
