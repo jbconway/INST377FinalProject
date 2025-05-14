@@ -1,7 +1,4 @@
-
 // SEARCH PAGE
-
-
 
 import API_KEY from './config.js';
 
@@ -21,13 +18,13 @@ export function setupSearchHandler() {
 
     const ingredientsArray = rawInput
       .split(',')
-      .map(ing => ing.trim().replace(/\s+/g, '+')) // replace spaces with +
+      .map(ing => ing.trim().replace(/\s+/g, '+'))
       .filter(ing => ing.length > 0);
 
-    const ingredients = ingredientsArray.join(',+'); // keep commas between ingredients
+    const ingredients = ingredientsArray.join(',+');
 
     const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=${API_KEY}`;
-    console.log('API Request URL:', apiUrl); 
+    console.log('API Request URL:', apiUrl);
 
     resultsContainer.innerHTML = '<p>Searching...</p>';
 
@@ -40,7 +37,7 @@ export function setupSearchHandler() {
         return;
       }
 
-      resultsContainer.innerHTML = '';
+      let allRecipesHTML = '';
 
       for (const recipe of data) {
         try {
@@ -49,20 +46,22 @@ export function setupSearchHandler() {
           );
           const recipeInfo = await infoResponse.json();
 
-          const recipeDiv = document.createElement('div');
-          recipeDiv.classList.add('recipe-card');
-          recipeDiv.innerHTML = `
-            <h3>${recipeInfo.title}</h3>
-            <img src="${recipeInfo.image}" alt="${recipeInfo.title}" />
-            <p><a href="${recipeInfo.sourceUrl}" target="_blank">View Recipe</a></p>
-            <button class="button-24" role="button" data-id="${recipe.id}">&#10084</button>
+          allRecipesHTML += `
+            <div class="recipe-card">
+              <h3>${recipeInfo.title}</h3>
+              <img src="${recipeInfo.image}" alt="${recipeInfo.title}" />
+              <p><a href="${recipeInfo.sourceUrl}" target="_blank">View Recipe</a></p>
+              <button class="button-24" role="button" data-id="${recipe.id}">&#10084</button>
+            </div>
           `;
-          resultsContainer.appendChild(recipeDiv);
         } catch (error) {
           console.error(`Error fetching details for recipe ID ${recipe.id}:`, error);
         }
-        attachFavoriteButtonListeners();
       }
+
+      resultsContainer.innerHTML = allRecipesHTML;
+      attachFavoriteButtonListeners();
+
     } catch (error) {
       console.error('Error fetching recipes:', error);
       resultsContainer.innerHTML = '<p>Something went wrong. Try again later.</p>';
@@ -83,7 +82,6 @@ function attachFavoriteButtonListeners() {
     });
   });
 }
-
 
 window.addEventListener('load', setupSearchHandler);
 
