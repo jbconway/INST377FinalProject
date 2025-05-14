@@ -27,8 +27,9 @@ document.addEventListener("DOMContentLoaded", function () {
     init: 100,    // start at -100% (1 slide to the left)
     end: -100,      // end at +100% (1 slide to the right)
     show: 0,       // start at first slide
-    duration: 5,  // 1.5 seconds slide duration
-    autoPlay: false,
+    duration: 1,  // 1.5 seconds slide duration
+    delay: 10000, // 10 seconds delay between slides
+    autoPlay: true,
     controls: false
   });
   // Debugging logs
