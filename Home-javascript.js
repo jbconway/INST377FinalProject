@@ -23,16 +23,33 @@ export async function loadFeaturedRecipes() {
         <h3>${recipe.title}</h3>
         <img src="${recipe.image}" alt="${recipe.title}" />
         <p><a href="${recipe.sourceUrl}" target="_blank">View Recipe</a></p>
-        <button class="favorite-btn" data-id="${recipe.id}">Add to Favorites</button>
+        <button class="button-24" role="button" data-id="${recipe.id}">&#10084</button>
 
       `;
       recipesContainer.appendChild(recipeCard);
     });
+    attachFavoriteButtonListeners();
   } catch (error) {
     recipesContainer.innerHTML = `<p>Error loading recipes. Please try again later.</p>`;
     console.error('Error fetching recipes:', error);
   }
 }
+
+function attachFavoriteButtonListeners() {
+  document.querySelectorAll('.button-24').forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.toggle('favorited');
+
+      if (button.classList.contains('favorited')) {
+        console.log("Added to favorites");
+      } else {
+        console.log("Removed from favorites");
+      }
+    });
+  });
+}
+
+
 
 window.addEventListener('load', loadFeaturedRecipes);
 
