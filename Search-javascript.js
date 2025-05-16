@@ -48,9 +48,9 @@ export function setupSearchHandler() {
 
           allRecipesHTML += `
             <div class="recipe-card">
-              <h3>${recipeInfo.title}</h3>
+              <h3 class="recipe-name">${recipeInfo.title}</h3>
               <img src="${recipeInfo.image}" alt="${recipeInfo.title}" />
-              <p><a href="${recipeInfo.sourceUrl}" target="_blank">View Recipe</a></p>
+              <p><a class="recipe-url" href="${recipeInfo.sourceUrl}" target="_blank">View Recipe</a></p>
               <button class="button-24" role="button" data-id="${recipe.id}">&#10084</button>
             </div>
           `;
@@ -69,19 +69,65 @@ export function setupSearchHandler() {
   });
 }
 
+// function attachFavoriteButtonListeners() {
+//   document.querySelectorAll('.button-24').forEach(button => {
+//     button.addEventListener('click', () => {
+//       button.classList.toggle('favorited');
+
+//       if (button.classList.contains('favorited')) {
+//         console.log("Added to favorites");
+//       } else {
+//         console.log("Removed from favorites");
+//       }
+//     });
+//   });
+// }
 function attachFavoriteButtonListeners() {
   document.querySelectorAll('.button-24').forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', async () => {
       button.classList.toggle('favorited');
+
+      const recipeCard = button.closest('.recipe-card');
+      const recipeName = recipeCard.querySelector('.recipe-name')?.textContent;
+      const recipeUrl = recipeCard.querySelector('.recipe-url')?.href;
 
       if (button.classList.contains('favorited')) {
         console.log("Added to favorites");
+
+      console.log('Sending:', {
+        recipe_name: recipeName,
+        recipe_url: recipeUrl
+      });
+
+      // Send POST to Supabase via Express
+      await fetch('http://localhost:3000/recipes', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          recipe_name: recipeName,
+          recipe_url: recipeUrl
+          })
+        });
       } else {
         console.log("Removed from favorites");
+
+        // Send DELETE to Supabase via Express
+        await fetch('http://localhost:3000/recipes', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            recipe_id: recipeId
+          })
+        });
       }
     });
   });
 }
+
 
 window.addEventListener('load', setupSearchHandler);
 
