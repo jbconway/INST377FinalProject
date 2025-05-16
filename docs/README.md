@@ -25,9 +25,8 @@ Information Science undergraduate students at the University of Maryland
 
 
 ## Developer Manual
-
-# How to install this application and all dependencies
  
+# Install Dependencies:
 To glone the repository copy and paste the code below into your terminal
 Code: git clone git@github.com:jbconway/INST377FinalProject.git
 Code: cd INST377FinalProject
@@ -47,25 +46,17 @@ To install Body Parser:
 Code: npm install body-parser
 
 To install env for supabase key and url:
-Code: install dotenv
+Code: npm install dotenv
 
-# How to run this application on a server
-To run this application use the following command:
-Command: npm start
 
-The default port is localhost:3000
-
-# How to run any tests written for the software
-No tests have been implemented into this version of the application. 
-
-# The API for this server application - all GET, POST, PATCH, etc endpoints, and what they each do
+# Create necessary files and API keys:
 1. This application utilizes the spoonacular API found at the following link:
 https://spoonacular.com/food-api
 
 In order to use this API, an API key is needed and can be found here
 1. Sign up or log in at https://spoonacular.com/food-api
 2. Navigate to your dashboard and copy your **API key**
-3. Create a `.config` file in the root directory and paste the following:
+3. Create a `config.js` file in the root directory and paste the following:
 
 // config.js
 const API_KEY = 'your_spoonacular_api_key';
@@ -109,7 +100,7 @@ Step 1: Create a Supabase Account
 - Copy the following:
 Project URL → This is your SUPABASE_URL
 anon public key → This is your SUPABASE_KEY
-Save this in a .env file 
+Save this in a .env file in the supabaseFinalProject folder
 // .env
 SUPABASE_URL = url
 SUPABASE_KEY = key
@@ -134,6 +125,16 @@ FULL URL:
 http://localhost:3000/recipes
 
 Both of these endpoints are used by the frontend to display data and save data entered by a user
+
+
+# How to run this application on a server
+To run this application use the following command in the supabaseFinalProject folder:
+Command: 
+cd supabaseFinalProject
+npm start
+
+The default port is localhost:3000
+
 
 # A clear set of expectations around known bugs and a road-map for future development
 Bugs
