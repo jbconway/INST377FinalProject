@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');           // Add CORS support so frontend can access API
+// const cors = require('cors');           // Add CORS support so frontend can access API
 const { createClient } = require('@supabase/supabase-js');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());                        // Enable CORS for all routes
+// app.use(cors());                        // Enable CORS for all routes
 app.use(express.json());                // Parse JSON bodies
 
 // Load Supabase environment variables from .env file
