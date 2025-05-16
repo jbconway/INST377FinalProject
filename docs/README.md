@@ -29,7 +29,8 @@ Information Science undergraduate students at the University of Maryland
 # How to install this application and all dependencies
  
 To glone the repository copy and paste the code below into your terminal
-code: git@github.com:jbconway/INST377FinalProject.git
+Code: git clone git@github.com:jbconway/INST377FinalProject.git
+      cd INST377FinalProject
 
 This application utlizes Node, Supabase, Express, Body Parser, and dotenv
 
@@ -54,9 +55,10 @@ Command: npm start
 
 The default port is localhost:3000
 
-# How to run any tests you have written for your software
+# How to run any tests written for the software
+No tests have been implemented into this version of the application. 
 
-# The API for your server application - all GET, POST, PATCH, etc endpoints, and what they each do
+# The API for this server application - all GET, POST, PATCH, etc endpoints, and what they each do
 1. This application utilizes the spoonacular API found at the following link:
 https://spoonacular.com/food-api
 
@@ -88,6 +90,18 @@ FULL URL:
 `https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${encodeURIComponent(ingredient)}&apiKey=${API_KEY}`;
 
 2. This application utilizes the supabase database API found at the following link:
-A Supabase Key and Supabase URL is needed for this application
+A Supabase Key and Supabase URL is needed for this application and is in a located .env file
+// .env
+SUPABASE_URL = url
+SUPABASE_KEY = key
 
 # A clear set of expectations around known bugs and a road-map for future development
+On the search page, ingredients must be separated by a comma for example 'eggs, milk, cheese'
+This application does not authenticate each individual user so favorite recipes are not specific to an individual
+There is little error handling implemented for the API calls
+
+In the future, we hope to...
+- add user authentication and a way to log in to track user recipes
+- improve the search element by expanding to not jsut ingredients but recommended recipes
+
+
