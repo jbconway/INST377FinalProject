@@ -26,20 +26,40 @@ Information Science undergraduate students at the University of Maryland
 
 ## Developer Manual
 
-# How to install your application and all dependencies
+# How to install this application and all dependencies
  
 To glone the repository copy and paste the code below into your terminal
-
 code: git@github.com:jbconway/INST377FinalProject.git
 
-This application utlizes node, supabase, and express
+This application utlizes Node, Supabase, Express, and Body Parser
 
 To install node:
-code: npm install nodemon
+Code: npm install nodemon
 
 To install supabase:
-code: npm install @supabase/supabase-js
+Code: npm install @supabase/supabase-js
+Note:
+A Supabase Key and Supabase URL is needed for this applicaiton
 
 To install express:
-code: npm install express
+Code: npm install express
 
+To install Body Parser:
+npm install body-parser
+
+This application utilizes the spoonacular API found at the following link:
+https://spoonacular.com/food-api
+
+In order to use this API, an API key is needed
+
+# How to run this application on a server
+To run this application use the following command:
+Command: npm start
+
+The default port is localhost:3000
+
+# How to run any tests you have written for your software
+
+# The API for your server application - all GET, POST, PATCH, etc endpoints, and what they each do
+
+# A clear set of expectations around known bugs and a road-map for future development
