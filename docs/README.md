@@ -91,16 +91,45 @@ FULL URL:
 
 2. This application utilizes the supabase database API found at the following link:
 A Supabase Key and Supabase URL is needed for this application and is in a located .env file
+
+To get the URL and key follow these steps:
+Step 1: Create a Supabase Account
+- Go to https://supabase.com
+- Click Start your project
+- Sign in with GitHub
+- Once logged in, click New Project
+
+- Enter a project name
+- Choose a password (you’ll need this to access the database)
+- Select a region close to you
+- Click Create new project
+
+- Go to the Project Dashboard
+- Click Settings → API
+- Copy the following:
+Project URL → This is your SUPABASE_URL
+anon public key → This is your SUPABASE_KEY
+Save this in a .env file 
 // .env
 SUPABASE_URL = url
 SUPABASE_KEY = key
 
-Supabase ENDPOINTS
+To create the recipes table:
+- Go to the Table Editor
+- Click New Table
+- Name your table "recipes"
+- disable Row Level Security (RLS)
+Add the following columns:
+- recipe_id (int8)
+- recipe_name (text)
+- recipe_url (text)
+Click Save and now you should have the supabase table that is incorporated in this application
 
+Supabase ENDPOINTS:
 GET /recipes : Retrieves all saved recipes from the Supabase recipe table
 FULL URL:
 http://localhost:3000/recipes
-POST /recipes : Adds a new recipe, including the name and ingreditents, to the Supabase recipe table based on user input
+POST /recipes : Adds a new recipe, including the name and URL, to the Supabase recipe table based on user input
 FULL URL:
 http://localhost:3000/recipes
 
@@ -114,6 +143,8 @@ Bugs
 
 In the future, we hope to...
 - add user authentication and a way to log in to track user recipes
-- improve the search element by expanding to not jsut ingredients but recommended recipes
+- improve the search element by expanding to not just ingredients but recommended recipes
+
+
 
 
