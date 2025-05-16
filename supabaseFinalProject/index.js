@@ -1,70 +1,102 @@
-const express = require('express'); 
-const supabaseClient = require('@supabase/supabase-js');
-const bodyParser = require('body-parser')
-// const { isValidStateAbbreviation } = required('usa-state-validator) if we want to add a js library we can
+const express = require('express');
+const cors = require('cors');           // Add CORS support so frontend can access API
+const { createClient } = require('@supabase/supabase-js');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const app = express()
-const port = 3000;
+const app = express();
+const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json())
-app.use(express.static(__dirname + '/public'))
-const supabaseUrl = process.env.SUPABASE_URL
-const supabaseKey = process.env.SUPABASE_KEY
-const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
+app.use(cors());                        // Enable CORS for all routes
+app.use(express.json());                // Parse JSON bodies
 
-app.get('/', (req, res) => {
-    res.sendFile('recipes.html', { root: __dirname });
+// Load Supabase environment variables from .env file
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
+// Log to verify env variables loaded
+console.log('SUPABASE_URL:', supabaseUrl ? 'Loaded' : 'Missing');
+console.log('SUPABASE_KEY:', supabaseKey ? 'Loaded' : 'Missing');
+
+// Create Supabase client
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+// GET endpoint: fetch all recipes
+app.get('/recipes', async (req, res) => {
+  const { data, error } = await supabase.from('recipes').select();
+  if (error) {
+    console.error('Error fetching recipes:', error);
+    return res.status(400).json({ error: error.message });
+  }
+  res.json(data);
 });
 
-app.get('/recipes', async (req, res) => {
-    console.log('Attempting to GET all recipes')
+// POST endpoint: add a new recipe
+// app.post('/recipes', async (req, res) => {
+//   const { recipe_name, recipe_ingredients } = req.body;
 
-    const { data, error } = await supabase.from('recipes').select();
+//   if (!recipe_name || !recipe_ingredients) {
+//     return res.status(400).json({ error: 'recipe_name and recipe_ingredients are required' });
+//   }
 
-    if(error) {
-        console.log(`Error: ${error}`);
-        res.statusCode = 400
-        res.send(error);
-    }
+//   const { data, error } = await supabase
+//     .from('recipes')
+//     .insert([{ recipe_name, recipe_ingredients }])
+//     .select();
 
-    res.send(data)
-})
+//   if (error) {
+//     console.error('Error inserting recipe:', error);
+//     return res.status(500).json({ error: error.message });
+//   }
 
+//   res.status(201).json(data);
+// });
 app.post('/recipes', async (req, res) => {
-    console.log('Adding recipe')
+  const { recipe_name, recipe_url } = req.body;
 
-    console.log(req.body);
-    const recipeName = req.body.recipe_name;
-    const recipeIngredients = req.body.recipe_ingredients;
+  if (!recipe_name || !recipe_url) {
+    return res.status(400).json({ error: 'recipe_name and recipe_url are required' });
+  }
 
-    // this is for a library if we wanted to add one, but we would use a different one bc state doesnt make sense for this project
-    // if(!isValidStateAbbreviation(state) {
-    // console.error(`State: ${state}, is Invalid`);
-    // res.statusCode = 400;
-    // res.header('Content-type', 'application/json')
-    // const errorJson = {
-    // 'message': `${state} is not a valid state`}
-    //
-    // res.send(JSON.stringify(errorJson));
-    // return;
-    //})
+  const { data, error } = await supabase
+    .from('recipes')
+    .insert([{ recipe_name, recipe_url }])
+    .select();
 
-    const { data, error } = await supabase
-  .from('recipes')
-  .insert({ recipe_name: recipeName, recipe_ingredients: recipeIngredients })
-  .select()
+  if (error) {
+    console.error('Error inserting recipe:', error);
+    return res.status(500).json({ error: error.message });
+  }
 
-  if(error) {
-    console.log(`Error: ${error}`);
-    res.statusCode = 500
-    res.send(error);
-}
+  res.status(201).json(data);
+});
 
-    res.send(data);
-})
 
+// (Optional) DELETE endpoint: remove a recipe by ID
+app.delete('/recipes', async (req, res) => {
+  const { recipe_id } = req.body;
+
+  if (!recipe_id) {
+    return res.status(400).json({ error: 'recipe_id is required' });
+  }
+
+  const { data, error } = await supabase
+    .from('recipes')
+    .delete()
+    .eq('recipe_id', recipe_id);
+
+  if (error) {
+    console.error('Error deleting recipe:', error);
+    return res.status(500).json({ error: error.message });
+  }
+
+  res.json(data);
+});
+
+// Serve static frontend if needed
+app.use(express.static(__dirname + '/public'));
+
+// Start server
 app.listen(port, () => {
-    console.log('App is alive on port', port)
+  console.log(`Server running on port ${port}`);
 });
