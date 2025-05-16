@@ -107,9 +107,10 @@ http://localhost:3000/recipes
 Both of these endpoints are used by the frontend to display data and save data entered by a user
 
 # A clear set of expectations around known bugs and a road-map for future development
-On the search page, ingredients must be separated by a comma for example 'eggs, milk, cheese'
-This application does not authenticate each individual user so favorite recipes are not specific to an individual
-There is little error handling implemented for the API calls
+Bugs
+- On the search page, ingredients must be separated by a comma for example 'eggs, milk, cheese'
+- This application does not authenticate each individual user so favorite recipes are not specific to an individual
+- There is little error handling implemented for the API calls
 
 In the future, we hope to...
 - add user authentication and a way to log in to track user recipes
