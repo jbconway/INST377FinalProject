@@ -16,10 +16,30 @@ RecipeMe is designed to work on modern browsers, including:
 - **Android Chrome** (Android 10+)
 
 ## Developer Manual  
-A full developer setup and deployment guide can be found here:  
+A full developer setup and deployment guide can be found below:  
 
 ## Authors  
 **Hannah Richard**  
 **Jillian Conway**  
 Information Science undergraduate students at the University of Maryland
+
+
+## Developer Manual
+
+# How to install your application and all dependencies
+ 
+To glone the repository copy and paste the code below into your terminal
+
+code: git@github.com:jbconway/INST377FinalProject.git
+
+This application utlizes node, supabase, and express
+
+To install node:
+code: npm install nodemon
+
+To install supabase:
+code: npm install @supabase/supabase-js
+
+To install express:
+code: npm install express
 
