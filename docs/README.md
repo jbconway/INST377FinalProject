@@ -47,11 +47,6 @@ Code: npm install express
 To install Body Parser:
 npm install body-parser
 
-This application utilizes the spoonacular API found at the following link:
-https://spoonacular.com/food-api
-
-In order to use this API, an API key is needed
-
 # How to run this application on a server
 To run this application use the following command:
 Command: npm start
@@ -61,5 +56,34 @@ The default port is localhost:3000
 # How to run any tests you have written for your software
 
 # The API for your server application - all GET, POST, PATCH, etc endpoints, and what they each do
+This application utilizes the spoonacular API found at the following link:
+https://spoonacular.com/food-api
+
+In order to use this API, an API key is needed and can be found here
+1. Sign up or log in at https://spoonacular.com/food-api
+2. Navigate to your dashboard and copy your **API key**
+3. Create a `.config` file in the root directory and paste the following:
+// config.js
+const API_KEY = 'your_spoonacular_api_key';
+export default API_KEY;
+
+Spoonacular ENDPOINTS
+
+GET - recipes/random?number=6&includeNutrition=true : Returns a list of 6 random recipes with nutrition info
+Full URL:
+`https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=${API_KEY}`
+
+GET - /recipes/findByIngredients : Search for recipes by a list of ingredients
+FULL URL:
+`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=${API_KEY}`;
+
+GET - /recipes/{id}/information : Get detailed information for a specific recipe by ID
+FULL URL:
+`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${API_KEY}`
+
+GET - /food/ingredients/substitutes : Get suggested substitutes for a given ingredient
+FULL URL:
+`https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${encodeURIComponent(ingredient)}&apiKey=${API_KEY}`;
+
 
 # A clear set of expectations around known bugs and a road-map for future development
