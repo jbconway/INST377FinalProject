@@ -1,47 +1,40 @@
 <!-- Favorites Page -->
 <html>
-    <head>
-      <title>RecipeMe - Favorites</title>
-      <link rel="stylesheet" href="INST377Final-style.css" />
-      <script src="INST377Final-javascript.js"></script>
-      <script type="text/javascript" src="supabase-functions-recipes.js" defer></script>
+  <head>
+    <title>RecipeMe - Favorites</title>
+    <link rel="stylesheet" href="INST377Final-style.css" />
+    <!-- Grid.js CSS -->
+    <link
+      href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"
+      rel="stylesheet"
+    />
 
-    </head>
+    <!-- Grid.js JS -->
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script src="Favorites.js"></script>
+  </head>
 
-    <body>
-        <!-- Header Section -->
-        <header class="main-header">
-            <h1>RecipeMe</h1>
-        </header>
-  
-      <!-- Navigaiton Section -->
-      <nav class="main-nav">
-        <ul>
-          <li><a href="HomePage.html">Home</a></li>
-          <li><a href="AboutPage.html">About</a></li>
-          <li><a href="HelpPage.html">Help</a></li>
-          <li><a href="SearchPage.html">Search</a></li>
-          <li><a href="FavoritesPage.html">Favorites</a></li>
-          <li><a href="SubstitutesPage.html">Substitutes</a></li>
-        </ul>
-      </nav>
-<!-- use charting libraries to display favroties (chart js) -->
+  <body>
+    <!-- Header Section -->
+    <header class="main-header">
+      <h1>RecipeMe</h1>
+    </header>
 
+    <!-- Navigaiton Section -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="HomePage.html">Home</a></li>
+        <li><a href="AboutPage.html">About</a></li>
+        <li><a href="HelpPage.html">Help</a></li>
+        <li><a href="SearchPage.html">Search</a></li>
+        <li><a href="FavoritesPage.html">Favorites</a></li>
+        <li><a href="SubstitutesPage.html">Substitutes</a></li>
+      </ul>
+    </nav>
+    <!-- use charting libraries to display favroties (chart js) -->
 
-<!-- SUPABASE Incorporation  -->
-
-    <!-- form to add to database (we could change this)-->
-      <h1>Our Customers Favorite Recipes</h1>
-      <form onsubmit="createRecipe(); return false">
-          <label for="recipeName"> Recipe Name:</label>
-          <input type="text" id="recipeName">
-          <br>
-          <label for="recipeIngredients"> Recipe Ingredients:</label>
-          <input type="text" id="recipeIngredients">
-          <br>
-          <br>
-          <input type="submit" name="Add recipe">
-      </form>
-
-    </body>
+    <!-- Favorites Table -->
+    <h2 style="text-align: center">Your Favorite Recipes</h2>
+    <div id="favorites-table" style="padding: 20px"></div>
+  </body>
 </html>

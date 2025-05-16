@@ -27,34 +27,19 @@ export function setupSubstituteSearch() {
         return;
       }
 
-      // Build HTML table
-      let tableHTML = `
-        <h3>Substitutes for "${data.ingredient}"</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Substitute</th>
-            </tr>
-          </thead>
-          <tbody>
-      `;
+      // Clear previous Grid if it exists
+      resultsContainer.innerHTML = "";
 
-      data.substitutes.forEach((sub, index) => {
-        tableHTML += `
-          <tr>
-            <td>${index + 1}</td>
-            <td>${sub}</td>
-          </tr>
-        `;
-      });
-
-      tableHTML += `
-          </tbody>
-        </table>
-      `;
-
-      resultsContainer.innerHTML = tableHTML;
+      new gridjs.Grid({
+        columns: ["#", `Substitutes for "${data.ingredient}"`],
+        data: data.substitutes.map((sub, i) => [i + 1, sub]),
+        search: false,
+        pagination: { enabled: true, limit: 5 },
+        sort: true,
+        style: {
+          table: { width: '100%' }
+        }
+      }).render(resultsContainer);
 
     } catch (err) {
       console.error("Error fetching substitutes:", err);
