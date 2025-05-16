@@ -1,3 +1,4 @@
+// adding supabase data on html front end
 async function createRecipe() {
     await fetch('/recipes', {
         method: 'POST',
@@ -9,7 +10,6 @@ async function createRecipe() {
 
     await loadRecipeData();
 }
-
 
 // getting supabase data on html front end
 async function loadRecipeData() {
