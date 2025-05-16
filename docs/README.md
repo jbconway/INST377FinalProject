@@ -95,8 +95,15 @@ A Supabase Key and Supabase URL is needed for this application and is in a locat
 SUPABASE_URL = url
 SUPABASE_KEY = key
 
+Supabase ENDPOINTS
+
 GET /recipes : Retrieves all saved recipes from the Supabase recipe table
+FULL URL:
+http://localhost:3000/recipes
 POST /recipes : Adds a new recipe, including the name and ingreditents, to the Supabase recipe table based on user input
+FULL URL:
+http://localhost:3000/recipes
+
 Both of these endpoints are used by the frontend to display data and save data entered by a user
 
 # A clear set of expectations around known bugs and a road-map for future development
