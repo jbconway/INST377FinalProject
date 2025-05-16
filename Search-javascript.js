@@ -88,6 +88,7 @@ function attachFavoriteButtonListeners() {
       button.classList.toggle('favorited');
 
       const recipeCard = button.closest('.recipe-card');
+      const recipeId = button.dataset.id;  // Get recipe ID from button's data-id attribute
       const recipeName = recipeCard.querySelector('.recipe-name')?.textContent;
       const recipeUrl = recipeCard.querySelector('.recipe-url')?.href;
 
@@ -95,6 +96,7 @@ function attachFavoriteButtonListeners() {
         console.log("Added to favorites");
 
       console.log('Sending:', {
+        recipe_id: recipeId,
         recipe_name: recipeName,
         recipe_url: recipeUrl
       });
@@ -106,6 +108,7 @@ function attachFavoriteButtonListeners() {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
+          recipe_id: recipeId,
           recipe_name: recipeName,
           recipe_url: recipeUrl
           })

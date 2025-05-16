@@ -52,7 +52,7 @@ app.get('/recipes', async (req, res) => {
 //   res.status(201).json(data);
 // });
 app.post('/recipes', async (req, res) => {
-  const { recipe_name, recipe_url } = req.body;
+  const { recipe_id, recipe_name, recipe_url } = req.body;
 
   if (!recipe_name || !recipe_url) {
     return res.status(400).json({ error: 'recipe_name and recipe_url are required' });
@@ -60,7 +60,7 @@ app.post('/recipes', async (req, res) => {
 
   const { data, error } = await supabase
     .from('recipes')
-    .insert([{ recipe_name, recipe_url }])
+    .insert([{ recipe_id, recipe_name, recipe_url }])
     .select();
 
   if (error) {
