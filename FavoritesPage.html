@@ -4,6 +4,8 @@
       <title>RecipeMe - Favorites</title>
       <link rel="stylesheet" href="INST377Final-style.css" />
       <script src="INST377Final-javascript.js"></script>
+      <script type="text/javascript" src="supabase-functions-recipes.js" defer></script>
+
     </head>
 
     <body>
@@ -23,8 +25,23 @@
           <li><a href="SubstitutesPage.html">Substitutes</a></li>
         </ul>
       </nav>
+<!-- use charting libraries to display favroties (chart js) -->
+
+
+<!-- SUPABASE Incorporation  -->
+
+    <!-- form to add to database (we could change this)-->
+      <h1>Our Customers Favorite Recipes</h1>
+      <form onsubmit="createRecipe(); return false">
+          <label for="recipeName"> Recipe Name:</label>
+          <input type="text" id="recipeName">
+          <br>
+          <label for="recipeIngredients"> Recipe Ingredients:</label>
+          <input type="text" id="recipeIngredients">
+          <br>
+          <br>
+          <input type="submit" name="Add recipe">
+      </form>
 
     </body>
 </html>
-
-<!-- use charting libraries to display favroties (chart js) -->
