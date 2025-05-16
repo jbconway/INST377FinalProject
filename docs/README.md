@@ -30,9 +30,9 @@ Information Science undergraduate students at the University of Maryland
  
 To glone the repository copy and paste the code below into your terminal
 Code: git clone git@github.com:jbconway/INST377FinalProject.git
-      cd INST377FinalProject
+Code: cd INST377FinalProject
 
-This application utlizes Node, Supabase, Express, Body Parser, and dotenv
+This application utilizes Node, Supabase, Express, Body Parser, and dotenv
 
 To install node:
 Code: npm install nodemon
@@ -46,7 +46,7 @@ Code: npm install express
 To install Body Parser:
 Code: npm install body-parser
 
-To install dotenv:
+To install env for supabase key and url:
 Code: install dotenv
 
 # How to run this application on a server
