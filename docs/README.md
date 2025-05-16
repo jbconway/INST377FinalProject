@@ -95,6 +95,10 @@ A Supabase Key and Supabase URL is needed for this application and is in a locat
 SUPABASE_URL = url
 SUPABASE_KEY = key
 
+GET /recipes : Retrieves all saved recipes from the Supabase recipe table
+POST /recipes : Adds a new recipe, including the name and ingreditents, to the Supabase recipe table based on user input
+Both of these endpoints are used by the frontend to display data and save data entered by a user
+
 # A clear set of expectations around known bugs and a road-map for future development
 On the search page, ingredients must be separated by a comma for example 'eggs, milk, cheese'
 This application does not authenticate each individual user so favorite recipes are not specific to an individual
