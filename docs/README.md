@@ -129,6 +129,9 @@ http://localhost:3000/recipes
 
 Both of these endpoints are used by the frontend to display data and save data entered by a user
 
+To summarize:
+Make sure the config.js and .env file are added in order to run locally
+
 # How to run this application on a server
 To run on a local server use the following command:
 Command: 
