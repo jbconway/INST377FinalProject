@@ -128,10 +128,16 @@ Both of these endpoints are used by the frontend to display data and save data e
 
 
 # How to run this application on a server
-To run this application use the following command in the supabaseFinalProject folder:
+To run on a local server use the following command:
 Command: 
-cd supabaseFinalProject
 npm start
+
+To run on vercel use the following steps:
+1. Create a Vercel Account
+Go to https://vercel.com
+Sign up or log in using your GitHub, GitLab, or Bitbucket account
+
+2. Make sure your repository has a vercel.json file with the 
 
 The default port is localhost:3000
 
