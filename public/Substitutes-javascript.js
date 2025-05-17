@@ -1,5 +1,5 @@
 
-export function setupSubstituteSearch() {
+function setupSubstituteSearch() {
   const button = document.getElementById('findSubstitutesBtn');
   const input = document.getElementById('ingredientInput');
   const resultsContainer = document.getElementById('substituteResults');
