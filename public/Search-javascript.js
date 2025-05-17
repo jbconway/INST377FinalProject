@@ -2,7 +2,7 @@
 
 const host = window.location.origin;
 
-export function setupSearchHandler() {
+function setupSearchHandler() {
   const searchBtn = document.getElementById('searchBtn');
   const ingredientInput = document.getElementById('ingredientInput');
   const resultsContainer = document.getElementById('results');
