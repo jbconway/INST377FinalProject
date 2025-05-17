@@ -1,7 +1,7 @@
 // HOME PAGE
 const host = window.location.origin;
 // loads 6 random featured recipes from the spoonacular API and displays them on the home page
-export async function loadFeaturedRecipes() {
+async function loadFeaturedRecipes() {
   const recipesContainer = document.getElementById('random-recipes');
   if (!recipesContainer) return;
 
