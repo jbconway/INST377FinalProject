@@ -127,7 +127,6 @@ http://localhost:3000/recipes
 
 Both of these endpoints are used by the frontend to display data and save data entered by a user
 
-
 # How to run this application on a server
 To run on a local server use the following command:
 Command: 
@@ -157,6 +156,10 @@ Bugs
 - On the search page, ingredients must be separated by a comma for example 'eggs, milk, cheese'
 - This application does not authenticate each individual user so favorite recipes are not specific to an individual
 - There is little error handling implemented for the API calls
+Note: This applicaiton utilizes 2 Javascript libraries 
+- Simple Slider JS
+- Grid.js JS
+
 
 In the future, we hope to...
 - add user authentication and a way to log in to track user recipes
