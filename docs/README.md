@@ -62,8 +62,7 @@ In order to use this API, an API key is needed and can be found here
 const API_KEY = 'your_spoonacular_api_key';
 export default API_KEY;
 
-Spoonacular ENDPOINTS
-
+Spoonacular ENDPOINTS:
 GET - recipes/random?number=6&includeNutrition=true : Returns a list of 6 random recipes with nutrition info
 Full URL:
 `https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=${API_KEY}`
@@ -102,11 +101,12 @@ Project URL → This is your SUPABASE_URL
 anon public key → This is your SUPABASE_KEY
 
 Save this in a .env file outside of the public folder, inside of the INST377FinalProject Folder
+
 // .env
 SUPABASE_URL = url
 SUPABASE_KEY = key
 
-To create the recipes table:
+To create the supabase recipes table:
 - Go to the Table Editor
 - Click New Table
 - Name your table "recipes"
@@ -121,6 +121,7 @@ Supabase ENDPOINTS:
 GET /recipes : Retrieves all saved recipes from the Supabase recipe table
 FULL URL:
 http://localhost:3000/recipes
+
 POST /recipes : Adds a new recipe, including the name and URL, to the Supabase recipe table based on user input
 FULL URL:
 http://localhost:3000/recipes
@@ -131,6 +132,7 @@ Both of these endpoints are used by the frontend to display data and save data e
 To run on a local server use the following command:
 Command: 
 npm start
+(make sure all dependencies have been downloaded or it will crash)
 
 To run on vercel use the following steps:
 1. Create a Vercel Account
@@ -156,6 +158,9 @@ Bugs
 - On the search page, ingredients must be separated by a comma for example 'eggs, milk, cheese'
 - This application does not authenticate each individual user so favorite recipes are not specific to an individual
 - There is little error handling implemented for the API calls
+- Make sure all dependencies have been downloaded or it will crash when the command npm start is used
+- If the .config file with the API Key and the .env with supabase URL and key are not added when runnning locally, certain functionalities will not work
+
 Note: This applicaiton utilizes 2 Javascript libraries 
 - Simple Slider JS
 - Grid.js JS
