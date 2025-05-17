@@ -100,6 +100,7 @@ Step 1: Create a Supabase Account
 - Copy the following:
 Project URL → This is your SUPABASE_URL
 anon public key → This is your SUPABASE_KEY
+
 Save this in a .env file outside of the public folder, inside of the INST377FinalProject Folder
 // .env
 SUPABASE_URL = url
@@ -135,9 +136,18 @@ npm start
 To run on vercel use the following steps:
 1. Create a Vercel Account
 Go to https://vercel.com
-Sign up or log in using your GitHub, GitLab, or Bitbucket account
+Sign up or log in using your GitHub account
 
-2. Make sure your repository has a vercel.json file with the 
+2. Make sure your repository has a vercel.json file 
+
+3. Add all Environment Variables 
+- Add API_KEY
+- Add SUPABASE_URL
+- Add SUPABASE_KEY
+If these variables are not added, the vercel deployment will fail
+
+4. Click on the domain link
+5. Type localhost:300/homepage.html in browser and the application will run
 
 The default port is localhost:3000
 
