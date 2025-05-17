@@ -1,4 +1,3 @@
-import API_KEY from './config.js';
 
 export function setupSubstituteSearch() {
   const button = document.getElementById('findSubstitutesBtn');
@@ -15,7 +14,7 @@ export function setupSubstituteSearch() {
       return;
     }
 
-    const url = `https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${encodeURIComponent(ingredient)}&apiKey=${API_KEY}`;
+    const url = `https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${encodeURIComponent(ingredient)}&apiKey=df603fed636c495ca7970bab03b19b4c`;
     console.log("Fetching from:", url);
 
     try {

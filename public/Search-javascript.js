@@ -1,6 +1,5 @@
 // SEARCH PAGE
 
-import API_KEY from './config.js';
 const host = window.location.origin;
 
 export function setupSearchHandler() {
@@ -24,7 +23,7 @@ export function setupSearchHandler() {
 
     const ingredients = ingredientsArray.join(',+');
 
-    const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=${API_KEY}`;
+    const apiUrl = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=df603fed636c495ca7970bab03b19b4c`;
     console.log('API Request URL:', apiUrl);
 
     resultsContainer.innerHTML = '<p>Searching...</p>';
@@ -43,7 +42,7 @@ export function setupSearchHandler() {
       for (const recipe of data) {
         try {
           const infoResponse = await fetch(
-            `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${API_KEY}`
+            `https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=df603fed636c495ca7970bab03b19b4c`
           );
           const recipeInfo = await infoResponse.json();
 
