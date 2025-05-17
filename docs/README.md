@@ -156,7 +156,7 @@ Make sure to add these variables with no quotes, just the raw numbers
 If these variables are not added, the vercel deployment will fail
 
 4. Click on the domain link
-5. Type localhost:300/homepage.html in browser and the application will run
+5. Type localhost:300/HomePage.html in browser and the application will run
 
 The default port is localhost:3000
 

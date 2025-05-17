@@ -13,8 +13,12 @@
       "dest": "/index.js"
     },
     {
-      "src": "/.*",
-      "dest": "index.js"
+      "src": "/",
+      "dest": "/public/HomePage.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
     }
   ]
 }
