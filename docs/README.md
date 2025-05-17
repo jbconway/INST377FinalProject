@@ -135,11 +135,11 @@ To summarize:
 Make sure the config.js and .env file are added in order to run locally
 
 # How to run this application on a server
-To run on a local server use the following command:
-Command: 
-npm start
-(make sure all dependencies have been downloaded or it will crash)
-Then "Go live" using a serve like Live Server
+To run on a local server use the following steps:
+
+1. Make sure all dependencies have been downloaded or it will crash
+2. Use Command: npm start
+3. Then "Go live" using a serve like Live Server
 
 To run on vercel use the following steps:
 1. Create a Vercel Account
