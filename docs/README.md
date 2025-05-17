@@ -31,7 +31,7 @@ To glone the repository copy and paste the code below into your terminal
 Code: git clone git@github.com:jbconway/INST377FinalProject.git
 Code: cd INST377FinalProject
 
-This application utilizes Node, Supabase, Express, Body Parser, and dotenv
+This application utilizes Node, Supabase, Express, Body Parser, dotenv, and cors
 
 To install node:
 Code: npm install nodemon
@@ -48,6 +48,8 @@ Code: npm install body-parser
 To install env for supabase key and url:
 Code: npm install dotenv
 
+To install cors:
+Code: npm install cors
 
 # Create necessary files and API keys:
 1. This application utilizes the spoonacular API found at the following link:
