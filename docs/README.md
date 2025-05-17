@@ -139,6 +139,7 @@ To run on a local server use the following command:
 Command: 
 npm start
 (make sure all dependencies have been downloaded or it will crash)
+Then "Go live" using a serve like Live Server
 
 To run on vercel use the following steps:
 1. Create a Vercel Account
