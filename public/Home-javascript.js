@@ -1,5 +1,5 @@
 // HOME PAGE
-
+const host = window.location.origin;
 // loads 6 random featured recipes from the spoonacular API and displays them on the home page
 import API_KEY from './config.js';
 export async function loadFeaturedRecipes() {
@@ -68,7 +68,7 @@ function attachFavoriteButtonListeners() {
       });
 
       // Send POST to Supabase via Express
-      await fetch('http://localhost:3000/recipes', {
+      await fetch(`${host}/recipes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ function attachFavoriteButtonListeners() {
         console.log("Removed from favorites");
 
         // Send DELETE to Supabase via Express
-        await fetch('http://localhost:3000/recipes', {
+        await fetch(`${host}/recipes`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'

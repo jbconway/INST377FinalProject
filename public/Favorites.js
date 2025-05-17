@@ -1,6 +1,7 @@
+const host = window.location.origin;
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const response = await fetch('http://localhost:3000/recipes');
+    const response = await fetch(`${host}/recipes`);
     const recipes = await response.json();
 
     // Convert Supabase data to Grid.js rows

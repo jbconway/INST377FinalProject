@@ -1,6 +1,7 @@
 // SEARCH PAGE
 
 import API_KEY from './config.js';
+const host = window.location.origin;
 
 export function setupSearchHandler() {
   const searchBtn = document.getElementById('searchBtn');
@@ -102,7 +103,7 @@ function attachFavoriteButtonListeners() {
       });
 
       // Send POST to Supabase via Express
-      await fetch('http://localhost:3000/recipes', {
+      await fetch(`${host}/recipes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -117,7 +118,7 @@ function attachFavoriteButtonListeners() {
         console.log("Removed from favorites");
 
         // Send DELETE to Supabase via Express
-        await fetch('http://localhost:3000/recipes', {
+        await fetch(`${host}/recipes`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'
