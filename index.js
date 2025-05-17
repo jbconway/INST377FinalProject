@@ -10,6 +10,9 @@ const port = process.env.PORT || 3000;
 app.use(cors());                        // Enable CORS for all routes
 app.use(express.json());                // Parse JSON bodies
 
+// Serve static frontend if needed
+app.use(express.static(__dirname + '/public'));
+
 // Load Supabase environment variables from .env file
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
@@ -20,6 +23,10 @@ console.log('SUPABASE_KEY:', supabaseKey ? 'Loaded' : 'Missing');
 
 // Create Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+app.get('/', (req, res) => {
+  res.sendFile('public/HomePage.html', { root: __dirname });
+});
 
 // GET endpoint: fetch all recipes
 app.get('/recipes', async (req, res) => {
@@ -71,7 +78,6 @@ app.post('/recipes', async (req, res) => {
   res.status(201).json(data);
 });
 
-
 // (Optional) DELETE endpoint: remove a recipe by ID
 app.delete('/recipes', async (req, res) => {
   const { recipe_id } = req.body;
@@ -92,9 +98,6 @@ app.delete('/recipes', async (req, res) => {
 
   res.json(data);
 });
-
-// Serve static frontend if needed
-app.use(express.static(__dirname + '/public'));
 
 // Start server
 app.listen(port, () => {
