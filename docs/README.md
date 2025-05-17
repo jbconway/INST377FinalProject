@@ -152,6 +152,7 @@ Sign up or log in using your GitHub account
 - Add API_KEY
 - Add SUPABASE_URL
 - Add SUPABASE_KEY
+Make sure to add these variables with no quotes, just the raw numbers
 If these variables are not added, the vercel deployment will fail
 
 4. Click on the domain link
