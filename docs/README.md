@@ -100,7 +100,7 @@ Step 1: Create a Supabase Account
 - Copy the following:
 Project URL → This is your SUPABASE_URL
 anon public key → This is your SUPABASE_KEY
-Save this in a .env file in the supabaseFinalProject folder
+Save this in a .env file outside of the public folder, inside of the INST377FinalProject Folder
 // .env
 SUPABASE_URL = url
 SUPABASE_KEY = key
