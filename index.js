@@ -24,9 +24,9 @@ console.log('SUPABASE_KEY:', supabaseKey ? 'Loaded' : 'Missing');
 // Create Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-app.get('/', (req, res) => {
-  res.sendFile('public/HomePage.html', { root: __dirname });
-});
+// app.get('/', (req, res) => {
+//   res.sendFile('public/HomePage.html', { root: __dirname });
+// });
 
 // GET endpoint: fetch all recipes
 app.get('/recipes', async (req, res) => {
