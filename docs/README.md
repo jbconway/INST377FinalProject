@@ -63,6 +63,7 @@ const API_KEY = 'your_spoonacular_api_key';
 export default API_KEY;
 
 Spoonacular ENDPOINTS:
+
 GET - recipes/random?number=6&includeNutrition=true : Returns a list of 6 random recipes with nutrition info
 Full URL:
 `https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=${API_KEY}`
