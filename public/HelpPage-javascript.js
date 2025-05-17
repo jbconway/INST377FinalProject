@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nextBtn = document.getElementById("nextBtn");
 
     if (prevBtn && nextBtn) {
+      console.log("Arrow buttons found.");
     prevBtn.addEventListener("click", (e) => {
       if (isNext) {
         slider.reverse();
