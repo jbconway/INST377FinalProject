@@ -14,7 +14,7 @@ function setupSubstituteSearch() {
       return;
     }
 
-    const url = `https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${encodeURIComponent(ingredient)}&apiKey=eb165fe24c144df881f568caedda92e0`;
+    const url = `https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${encodeURIComponent(ingredient)}&apiKey=df603fed636c495ca7970bab03b19b4c`;
     console.log("Fetching from:", url);
 
     try {

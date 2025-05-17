@@ -9,7 +9,7 @@ async function loadFeaturedRecipes() {
 
   try {
     const response = await fetch(
-      `https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=eb165fe24c144df881f568caedda92e0`
+      `https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=df603fed636c495ca7970bab03b19b4c`
     );
     const data = await response.json();
     const recipes = data.recipes;
