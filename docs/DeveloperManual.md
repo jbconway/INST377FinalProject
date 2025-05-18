@@ -144,6 +144,12 @@ To run on a local server use the following steps:
 
 # How to run this application on a server (vercel)
 To run on vercel use the following steps:
+
+You can click the vercel deployment link that is listed in the github 
+link: https://inst-377-final-project-wheat.vercel.app/
+
+OR 
+
 1. Create a Vercel Account
 
 Go to https://vercel.com and sign up or log in using your GitHub account
