@@ -34,19 +34,7 @@ async function loadFeaturedRecipes() {
   }
 }
 
-// function attachFavoriteButtonListeners() {
-//   document.querySelectorAll('.button-24').forEach(button => {
-//     button.addEventListener('click', () => {
-//       button.classList.toggle('favorited');
 
-//       if (button.classList.contains('favorited')) {
-//         console.log("Added to favorites");
-//       } else {
-//         console.log("Removed from favorites");
-//       }
-//     });
-//   });
-// }
 function attachFavoriteButtonListeners() {
   document.querySelectorAll('.button-24').forEach(button => {
     button.addEventListener('click', async () => {

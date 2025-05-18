@@ -1,33 +1,41 @@
 ## Developer Manual
  
 # Install Dependencies:
-To clone the repository copy and paste the code below into your terminal
+To clone the repository copy and paste the code below into your terminal:
+
 Code: git clone git@github.com:jbconway/INST377FinalProject.git
+
 Code: cd INST377FinalProject
 
 This application utilizes Node, Supabase, Express, Body Parser, dotenv, and cors
 
 To install node (local testing):
+
 Code: npm install nodemon
 
 To install supabase:
+
 Code: npm install @supabase/supabase-js
 
 To install express:
+
 Code: npm install express
 
 To install Body Parser:
+
 Code: npm install body-parser
 
 To install env for supabase key and url:
+
 Code: npm install dotenv
 
 To install cors:
+
 Code: npm install cors
 
 # Environment Variables and API keys:
 
-### 1. Spoonacular API
+## 1. Spoonacular API
 This application utilizes the spoonacular API found at the following link:
 https://spoonacular.com/food-api
 
@@ -39,33 +47,36 @@ In order to use this API, an API key is needed. To get it:
 > In this version of the application, the API key is **hardcoded** directly into the frontend JavaScript files.  
 > This was approved by the professor because:
 > - It uses the free version of the API.
-> - The GitHub repository is private.
 
 ### Spoonacular API Limits
 - **150 requests per day**, resets every 24 hours.
 - If you receive a **402 Payment Required** error on the Home, Search, or Substitute pages, this is likely the cause.
 
-## Spoonacular ENDPOINTS:
+This application uses the following APIs in Spoonacular:
 
 // Get 6 random recipes with nutrition info
+
 GET: https://api.spoonacular.com/recipes/random?number=6&includeNutrition=true&apiKey=${API_KEY}
 
 // Search recipes by ingredients
+
 GET: https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=10&apiKey=${API_KEY}
 
 // Get recipe info by ID
+
 GET: https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${API_KEY}
 
 // Find ingredient substitutes
+
 GET: https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${ingredient}&apiKey=${API_KEY}
 
 ## 2. Supabase (Database)
-This application utilizes the supabase database API found at the following link:
-A Supabase Key and Supabase URL is needed for this application and is in a located .env file
+This application utilizes the supabase database API.
+A Supabase Key and Supabase URL is needed for this application and is in a located .env file in root directory.
 
 To get the URL and key follow these steps:
-Step 1: Create a Supabase Account
-- Go to https://supabase.com
+
+- Go to https://supabase.com and create an account
 - Click Start your project
 - Sign in with GitHub
 - Once logged in, click New Project
@@ -81,10 +92,12 @@ Step 1: Create a Supabase Account
 Project URL → This is your SUPABASE_URL
 anon public key → This is your SUPABASE_KEY
 
-Save this in a .env file outside of the public folder, inside of the INST377FinalProject Folder
+Save this in a .env file outside of the public folder, inside of the INST377FinalProject Folder (root directory)
 
 // .env
+
 SUPABASE_URL = url
+
 SUPABASE_KEY = key
 
 To create the supabase recipes table:
@@ -92,71 +105,75 @@ To create the supabase recipes table:
 - Click New Table
 - Name your table "recipes"
 - disable Row Level Security (RLS)
+
 Add the following columns:
 - recipe_id (int8)
 - recipe_name (text)
 - recipe_url (text)
+
 Click Save and now you should have the supabase table that is incorporated in this application
 
-## Supabase ENDPOINTS:
-GET /recipes : Retrieves all saved recipes from the Supabase recipe table
+These are the Supabase endpoints we use:
+
+GET /recipes : Retrieves all saved or favorited recipes from the Supabase recipe table
+
 FULL URL:
 http://localhost:3000/recipes
 
-POST /recipes : Adds a new recipe, including the name and URL, to the Supabase recipe table based on user input
+POST /recipes : Adds a new recipe, including the id, name and URL, to the Supabase recipe table based on user input
+
 FULL URL:
 http://localhost:3000/recipes
+
+When posted to this URL, the properties (recipeName, recipeURL and recipeID) are included
 
 Both of these endpoints are used by the frontend to display data and save data entered by a user
 
 To summarize:
-Make sure the config.js and .env file are added in order to run locally
+Make sure the .env file is added in the root directory with the supbase key and url in order to run locally
 
-## Running Tests
+# Running Tests
 No automated test suite was created for this application.
 
-# How to run this application on a server (testing environment)
+# How to run this application locally (testing environment)
 To run on a local server use the following steps:
 
 1. Make sure all dependencies have been downloaded or it will crash
 2. Use Command: npm start in home directory (INST377FinalProject)
 3. Then navigate to http://localhost:3000
 
+# How to run this application on a server (vercel)
 To run on vercel use the following steps:
 1. Create a Vercel Account
-Go to https://vercel.com
-Sign up or log in using your GitHub account
+
+Go to https://vercel.com and sign up or log in using your GitHub account
 
 2. Make sure your repository has a vercel.json file 
 
-3. Add all Environment Variables 
+3. Add all Environment Variables in Vercel
 - Add API_KEY
 - Add SUPABASE_URL
 - Add SUPABASE_KEY
-Make sure to add these variables with no quotes, just the raw numbers
+
+Make sure to add these variables with no quotes, just the raw numbers.
 If these variables are not added, the vercel deployment will fail
 
 4. Click on the domain link
-5. Vercel will auto-deploy your project
+5. Vercel will auto-deploy the project
 
-Deploy app URL: https://inst-377-final-project-wheat.vercel.app/HomePage.html
+Deploy app URL: https://inst-377-final-project-wheat.vercel.app
 
 
-
-# A clear set of expectations around known bugs and a road-map for future development
+# Known Bugs and Future Development
 
 ## Known Bugs
 
 - On the **Search Page**, ingredients must be separated by a comma, for example: `eggs, milk, cheese`
 - The application does **not authenticate users**, so favorite recipes are **not unique to each individual**
 - There is **limited error handling** implemented for API calls
-- If **all dependencies** are not installed, the application will crash when using `npm start`
 - If the `.env` file with **Supabase URL and Key** is missing, the backend will not function locally
-- The **API_KEY for Spoonacular is hardcoded** in the codebase. This is allowed for this project because:
-  - The repository is private
-  - It uses a free API key
-- Spoonacular’s **free tier** limits usage to **150 requests per day**.  
-  If you receive a `402 Payment Required` error on the **Home**, **Substitute**, or **Search** pages, it's because the request limit has been reached for the day.
+- The **API_KEY for Spoonacular is hardcoded** in the codebase
+- Spoonacular’s **free tier** limits usage to **150 requests per day**. If you receive a `402 Payment Required` error on the **Home**, **Substitute**, or **Search** pages, it's because the request limit has been reached for the day.
 
 
 Note: This applicaiton utilizes 2 Javascript libraries 
@@ -165,7 +182,7 @@ Note: This applicaiton utilizes 2 Javascript libraries
 
 
 ## In the future, we hope to...
-- add user authentication and a way to log in to track user recipes
+- add user authentication and a way to log in to track users saved recipes
 - improve the search element by expanding to not just ingredients but recommended recipes
 - have the api key be hidden and increase the number of api requests allowed
 
